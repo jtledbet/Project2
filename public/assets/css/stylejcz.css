@@ -1,0 +1,71 @@
+
+.background{
+background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+z-index: -2;
+}
+
+p, .card-action{
+    text-align: center;
+}
+
+.container{
+margin-left: 325px;
+
+}
+h1{
+    color: white;
+    text-align: center;
+    font-family: 'Lora', serif;
+}
+
+.card-image{
+    height: 230px;
+}
+
+.card-action{
+    align-content: bottom;
+}
+
+.material-icons{
+    font-size: 15px;
+}
+.card-title{
+    font-size: 20px;
+}
+
+.side-card{
+    z-index: 2;
+    opacity: .5;
+    position: fixed;
+    margin-top: 100px;
+    margin-left: 30px;
+    width: 100px;
+}
+
+.parallax-container {
+    /* background-image: url("https://www.condorferries.co.uk/media/2455/taking-your-pet-5.jpg"); */
+    height: "500px";
+    width: 40%;
+    margin: 20px;
+  }
+
+.parallax { 
+height: 400px; 
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+  }
+
+
+.card-title{
+    text-align: left;
+    color: white;
+}
+
+.img{
+    float: right;
+}
+
+/* clean up css */
