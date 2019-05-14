@@ -4,6 +4,7 @@ var router = express.Router();
 
 // Import the model (pet.js) to use its database functions.
 var pet = require("../models/pet.js");
+var user = require("../models/user.js")
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -38,9 +39,9 @@ router.get("/api/pets", function(req, res) {
 
 router.post("/api/pets", function(req, res) {
   pet.create([
-    "name", "affected"
+    "pet_name", "species", "bio", "scores"
   ], [
-    req.body.name, req.body.affected
+    req.body.pet_name, req.body.species, "empty bio", req.body.scores
   ], function(result) {
     // Send back the ID of the new pet
     res.json({ id: result.insertId });

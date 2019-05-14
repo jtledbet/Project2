@@ -1,29 +1,44 @@
 var express = require("express");
+var db = require("./models");
+var app = express();
+var routes = require('./routing/apiRoutes.js');
+var exphbs = require('express-handlebars');
+var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var Strategy = require('passport-local').Strategy;
+require('./config/passport')(app);
+// var {ensureAuthenticated} = require('./config/auth');
+
+app.engine('handlebars', exphbs({defaultLayout: "main"}));
+app.set('view engine', 'handlebars');
+
+app.use(express.static('public'));
+app.use(cookieParser());
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use(session({secret: 'keyboard cat'}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// app.use(routes);
+app.use((error, req, res, next) => {
+    console.error(error);
+    res.render('error', {
+      user: req.user,
+      error
+    });
+  });
+
+app.post('/login', passport.authenticate('local', 
+{successRedirect: '/index', failureRedirect: '/login', failureFlash: true }
+));
 
 var PORT = process.env.PORT || 3030;
 
-var app = express();
-
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
-
-// Parse application body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Import routes and give the server access to them.
-var routes = require("./controllers/controller.js");
-
-app.use(routes);
-
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+db.sequelize.sync({force: true}).then(function() {
+    app.listen(PORT, function() {
+        console.log("Listening on port: ", PORT);
+    });
 });
