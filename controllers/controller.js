@@ -2,8 +2,8 @@ var express = require("express");
 
 var router = express.Router();
 
-// Import the pet (pet.js) to use its database functions.
-var pet = require("../pets/pet.js");
+// Import the model (pet.js) to use its database functions.
+var pet = require("../models/pet.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -13,6 +13,26 @@ router.get("/", function(req, res) {
     };
     console.log("OBJECT: ", hbsObject);
     res.render("index", hbsObject);
+  });
+});
+
+router.get("/survey", function(req, res) {
+  pet.all(function(data) {
+    var hbsObject = {
+      pets: data
+    };
+    console.log("OBJECT: ", hbsObject);
+    res.render("survey", hbsObject);
+  });
+});
+
+router.get("/api/pets", function(req, res) {
+  pet.all(function(data) {
+    var hbsObject = {
+      pets: data
+    };
+    console.log("OBJECT: ", hbsObject);
+    res.render("allpets", hbsObject);
   });
 });
 
