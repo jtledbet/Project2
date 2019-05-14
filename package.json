@@ -19,6 +19,7 @@
     "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
     "handlebars-helper-css": "^0.1.0"
   },
   "repository": {

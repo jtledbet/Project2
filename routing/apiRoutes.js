@@ -1,4 +1,4 @@
-var pets = require("../data/pets.js");
+var pets = require("../models/pets.js");
 
 module.exports = function (app) {
     console.log("api Routes GO!")
