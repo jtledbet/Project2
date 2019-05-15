@@ -1,57 +1,47 @@
 var express = require("express");
 var db = require("./models");
-var app = express();
-var exphbs = require('express-handlebars');
-var passport = require('passport');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var Strategy = require('passport-local').Strategy;
-require('./config/passport')(app);
+
+// var exphbs = require('express-handlebars');
+// var passport = require('passport');
+// var cookieParser = require('cookie-parser');
+// var session = require('express-session');
+// require('./config/passport')(app);
 // var {ensureAuthenticated} = require('./config/auth');
 
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
+
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = process.env.PORT || 8080;
 
 // Routes
 // =============================================================
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
+// app.use("/", require("./routes/htmlRoutes"));
 
 
-app.engine('handlebars', exphbs({defaultLayout: "main"}));
-app.set('view engine', 'handlebars');
 
-app.use(express.static('public'));
-app.use(cookieParser());
-app.use(express.urlencoded({extended:true}));
+// Requiring our models for syncing
+var db = require("./models");
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(session({secret: 'keyboard cat'}));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// Static directory
+app.use(express.static("public"));
 
-app.use((routes, req, res, next) => {
-  console.error(routes);
-  res.render('routes', {
-    user: req.user,
-    error
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
   });
-});
-
-app.use((error, req, res, next) => {
-    console.error(error);
-    res.render('error', {
-      user: req.user,
-      error
-    });
-  });
-
-app.post('/login', passport.authenticate('local', 
-{successRedirect: '/index', failureRedirect: '/login', failureFlash: true }
-));
-
-var PORT = process.env.PORT || 3030;
-
-db.sequelize.sync({force: true}).then(function() {
-    app.listen(PORT, function() {
-        console.log("Listening on port: ", PORT);
-    });
 });

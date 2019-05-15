@@ -1,4 +1,3 @@
-var passport = require('passport');
 var sequelize = require('sequelize');
 
 
@@ -17,7 +16,8 @@ module.exports = function(sequelize, DataTypes) {
     bio: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { len: [1] }
+      validate: { len: [1] },
+      defaultValue: "loves hang-gliding"
     },
     scores: {
       type: DataTypes.INTEGER,

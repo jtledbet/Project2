@@ -2,7 +2,7 @@
 .background{
 background: rgb(0,0,0);
 background: linear-gradient(174deg, rgba(0,0,0,1) 0%, rgba(102,102,102,1) 44%, rgba(255,255,255,1) 100%);
-z-index: -1;
+/* z-index: -1; */
 }
 
 p, .card-action{
@@ -10,7 +10,6 @@ p, .card-action{
 }
 
 .container{
-margin-left: 325px;
 
 }
 h1{
@@ -20,7 +19,8 @@ h1{
 }
 
 .card-image{
-    height: 230px;
+    height: 300px;
+    width: 100%;
 }
 
 .card-action{
@@ -35,12 +35,26 @@ h1{
 }
 
 .card{
-    z-index: 2;
-    opacity: .5;
-    position: fixed;
-    margin-top: 100px;
-    margin-left: 30px;
+width: 300px;
+height: 400px;
+align-self: center;
     
 }
+
+
+.parallax-container{
+    width: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(174deg, rgba(0,0,0,1) 0%, rgba(102,102,102,1) 44%, rgba(255,255,255,1) 100%);
+}
+
+.row-container{
+    height: 300px;
+    width: 100%
+
+}
+ h2{
+    text-align: center;
+ }
 
 /* clean up css */
