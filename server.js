@@ -5,7 +5,6 @@ var exphbs = require('express-handlebars');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var Strategy = require('passport-local').Strategy;
 require('./config/passport')(app);
 // var {ensureAuthenticated} = require('./config/auth');
 
