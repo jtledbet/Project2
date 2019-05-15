@@ -30,6 +30,9 @@ background: gray;
     animation-name: drift;
     position: relative;
 }
+.card-title{
+    text-shadow: 2px 2px 2px #000;
+}
 @keyframes drift {
     from{
         top: -200px;
