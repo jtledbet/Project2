@@ -1,7 +1,6 @@
 var express = require("express");
 var db = require("./models");
 var app = express();
-var routes = require('./routing/apiRoutes.js');
 var exphbs = require('express-handlebars');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
@@ -9,6 +8,13 @@ var session = require('express-session');
 var Strategy = require('passport-local').Strategy;
 require('./config/passport')(app);
 // var {ensureAuthenticated} = require('./config/auth');
+
+
+// Routes
+// =============================================================
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
+
 
 app.engine('handlebars', exphbs({defaultLayout: "main"}));
 app.set('view engine', 'handlebars');
@@ -22,7 +28,14 @@ app.use(session({secret: 'keyboard cat'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(routes);
+app.use((routes, req, res, next) => {
+  console.error(routes);
+  res.render('routes', {
+    user: req.user,
+    error
+  });
+});
+
 app.use((error, req, res, next) => {
     console.error(error);
     res.render('error', {
