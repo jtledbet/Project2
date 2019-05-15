@@ -3,11 +3,13 @@
 }
 
 body {
-  background-image: url("/assets/img/catburger.png");
+  background-image: url("/assets/img/kitty.gif");
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
-  text-shadow: 2px 2px 2px rgba(168, 7, 7, 0.822);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.822);
+  background: rgb(0,0,0);
+  background: linear-gradient(174deg, rgba(0,0,0,1) 0%, rgba(102,102,102,1) 44%, rgba(255,255,255,1) 100%);
 }
 
 .container {
@@ -17,20 +19,6 @@ body {
 
 #header {
   padding-bottom: 20px;
-}
-
-#undevoured-column {
-
-}
-
-#devoured-column {
-
-}
-
-#add-catburger-card {
-  /* position: fixed; */
-  align-self: bottom;
-  vertical-align: bottom;
 }
 
 .card {
@@ -43,21 +31,21 @@ body {
 }
 
 .card-header {
-  background: rgb(179, 101, 6) !important;
+  background: rgb(61, 61, 60) !important;
   color: white;
-  text-shadow: 2px 2px 2px rgba(168, 7, 7, 0.822);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.822);
   text-align: center;
   text: bold;
 }
 
 .card-body {
-  background: #552200 !important;
+  background: #070707 !important;
   color: white;
   text-align: center;
 }
 
 .card-footer {
-  background: rgb(179, 101, 6) !important;
+  background: rgb(75, 74, 72) !important;
   text-align: center;
 }
 

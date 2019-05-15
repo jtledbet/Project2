@@ -1,0 +1,39 @@
+pets = hbsObject;
+
+//     var differenceArray = [];
+//     var differenceMin = 40;
+//     var bestPet;
+
+//     for (pet in pets) {
+//         var thisPet = pets[pet];
+//         console.log(thisPet);
+
+//         var thisDifference;
+//         var totalDifference = 0;
+
+//         for (score in thisPet.scores) {
+//             thisDifference = Math.abs(thisPet.scores[score] - justScores[score])
+//             totalDifference += thisDifference;
+//             totalDifferene = totalDifference + thisDifference;
+//         }
+
+//         differenceArray.push(totalDifference);
+
+//         for (index in differenceArray) {
+//             console.log("index:", index, "difArIn: ", differenceArray[index])
+
+//             if (differenceArray[index] < differenceMin) {
+//                 differenceMin = differenceArray[index];
+//                 bestPet = {
+//                     "name": thisPet.pet_name,
+//                     "photo": thisPet.photo
+//                 };
+//             }
+//         }
+
+//         console.log("bestPet: " + bestPet.pet_name)
+//     }
+
+//     // Respond to query
+//     var response = (bestPet);
+//     res.json(response);
