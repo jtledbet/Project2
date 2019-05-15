@@ -1,0 +1,55 @@
+nav {
+    animation-duration: 2.5s;
+    animation-name: drift;
+}
+.row {
+width: 100%;
+}
+.col.s4{
+text-align: center;
+}
+#title{
+    margin: 1px;
+    text-shadow: 2px 2px 2px #000;
+}
+#pic1 {
+    position: fixed;
+    top: -450px;
+}
+#login-btn{
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+.section.white{
+background: gray;
+}
+#greeting{
+    text-shadow: 2px 2px 2px #000;
+    animation-duration: 1.5s;
+    animation-name: drift;
+    position: relative;
+}
+.card-title{
+    text-shadow: 2px 2px 2px #000;
+}
+.grey-text{
+    text-shadow: 1px 1px 1px #000;
+}
+.white-text{
+    text-shadow: 1px 1px 1px #000;
+}
+.card-image{
+    
+}
+@keyframes drift {
+    from{
+        top: -200px;
+        opacity: 0;
+    }
+    to{
+        top: 0;
+        opacity: 1;
+    }
+}
+
