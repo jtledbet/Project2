@@ -4,6 +4,13 @@ DROP DATABASE IF EXISTS project2_db;
 CREATE DATABASE project2_db;
 USE project2_db;
 
+CREATE TABLE species(
+	id int NOT NULL AUTO_INCREMENT,
+	species varchar(255) NOT NULL,
+	scores varchar(255) NOT NULL,
+	PRIMARY KEY (id)
+)
+
 CREATE TABLE pets
 (
 	id int NOT NULL AUTO_INCREMENT,
