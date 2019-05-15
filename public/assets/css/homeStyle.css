@@ -39,9 +39,12 @@ background: gray;
 .white-text{
     text-shadow: 1px 1px 1px #000;
 }
-.card-image{
-    
+/* .turtle{
+    height: 100%;
 }
+.textPart{
+    height: 20%;
+} */
 @keyframes drift {
     from{
         top: -200px;
