@@ -15,43 +15,37 @@ require('./config/passport')(app);
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
 
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
+var express = require("express");
 
-app.engine('handlebars', exphbs({defaultLayout: "main"}));
-app.set('view engine', 'handlebars');
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = process.env.PORT || 8080;
 
-app.use(express.static('public'));
-app.use(cookieParser());
-app.use(express.urlencoded({extended:true}));
+// Requiring our models for syncing
+var db = require("./models");
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(session({secret: 'keyboard cat'}));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// Static directory
+app.use(express.static("public"));
 
-app.use((routes, req, res, next) => {
-  console.error(routes);
-  res.render('routes', {
-    user: req.user,
-    error
+// Routes
+// =============================================================
+require("./routes/api-routes.js")(app);
+
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
   });
-});
-
-app.use((error, req, res, next) => {
-    console.error(error);
-    res.render('error', {
-      user: req.user,
-      error
-    });
-  });
-
-app.post('/login', passport.authenticate('local', 
-{successRedirect: '/index', failureRedirect: '/login', failureFlash: true }
-));
-
-var PORT = process.env.PORT || 3030;
-
-db.sequelize.sync({force: true}).then(function() {
-    app.listen(PORT, function() {
-        console.log("Listening on port: ", PORT);
-    });
 });
