@@ -22,15 +22,15 @@ $("#submitButton").on("click", function (event) {
 
     console.log("surveyData: " + JSON.stringify(surveyData));
 
-    // Add new pet to array
+    // Compare scores:
     console.log(surveyData)
-    $.post("/api/pets", surveyData)
+    $.get("/api/pets/submit", surveyData)
         .then(function(res) {
           console.log("res.body", res.body);
-          console.log("res.name", res.pet_name);
+          console.log("res.name", res.species_name);
           
           $("#best-friend-alert").text("Your new best friend has been identified as " + res.pet_name + "!")
-          $("#best-friend-image").attr("src", res.photo);
+          $("#best-friend-image").attr("src", res.img);
           $("#best-friend-image").attr("width", 450);
                     
     });

@@ -17,6 +17,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       validate: { len: [8] }
     },
+    scores: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: { len: [1] }
+    },
     isSuperUser: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,

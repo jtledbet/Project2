@@ -8,8 +8,8 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validate: { len: [1] }
         },
-        scores: {
-            type: DataTypes.STRING,
+        score: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: { len: [1] }
         }
