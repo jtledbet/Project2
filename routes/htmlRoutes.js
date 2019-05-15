@@ -2,10 +2,9 @@
 var path =  require('path');
 
 module.exports = function(app) {
-    console.log("static dir: ", __dirname);
 
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, '../public/index'));
+        res.sendFile(path.join(__dirname, '../public/index.html'));
     });
     
     // app.get('/login', function(req, res) {
@@ -13,11 +12,10 @@ module.exports = function(app) {
     // });
 
     app.get('/survey', function(req, res) {
-        res.sendFile(path.join(__dirname, '../public/survey'));
+        res.sendFile(path.join(__dirname, '../public/survey.html'));
     });
 
     app.get('/all', function(req, res) {
-        console.log("this is running")
         res.sendFile(path.join(__dirname, '../public/viewAll.html'));
     });
 
