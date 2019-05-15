@@ -12,7 +12,7 @@ require('./config/passport')(app);
 
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
+require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
 
 
