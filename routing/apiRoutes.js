@@ -1,112 +1,68 @@
-var db = require('../models');
-var express = require('express');
-var app = express();
-var router = express.Router();
-var exphbs = require('express-handlebars');
-var moment = require('moment-timezone');
-var passport = require('passport');
-var Strategy = require('passport-local').Strategy;
+// *********************************************************************************
+// api-routes.js - this file offers a set of routes for displaying and saving data to the db
+// *********************************************************************************
 
-// Import the model (pet.js) to use its database functions.
-var Pet = require("../models/pet.js");
-var User = require("../models/user.js")
+// Dependencies
+// =============================================================
 
-app.engine('handlebars', exphbs({ defaultLayout: "main" }));
-app.set('view engine', 'handlebars');
+// Requiring our models
+var db = require("../models");
 
+// Routes
+// =============================================================
+module.exports = function(app) {
 
-router.get('/login', function (req, res) {
-    res.render(res);
-});
-
-router.post('/signup', function (req, res) {
-    db.User.create({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
-    }).then(function (result) {
-        res.json(result);
+  // GET route for getting all of the todos
+  app.get("/api/todos", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Todo.findAll({}).then(function(dbTodo) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbTodo);
     });
-});
+  });
 
-router.get('/pets', function (req, res) {
-    db.Pet.findAll({}).then(function (result) {
-        res.render('index', result);
+  // POST route for saving a new todo
+  app.post("/api/todos", function(req, res) {
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property
+    db.Todo.create({
+      text: req.body.text,
+      complete: req.body.complete
+    }).then(function(dbTodo) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbTodo);
     });
-});
+  });
 
-router.get('/survey', function (req, res) {
-    db.Pet.findAll({}).then(function (result) {
-        res.render('index', result);
+  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
+  // req.params.id
+  app.delete("/api/todos/:id", function(req, res) {
+    // We just have to specify which todo we want to destroy with "where"
+    db.Todo.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
     });
-});
 
-// // Display possible pets:
-// app.get("/api/pets", function (req, res) {
-//     Pet.findAll(function (data) {
-//         var hbsObject = {
-//             pet: data
-//         };
-//         res.json(hbsObject);
-//         console.log("OBJECT: ", hbsObject);
-//         res.render("index", hbsObject);
-//     });
-// });
+  });
 
-// // Incoming survey results:
-// app.post("/api/pets", function (req, res) {
-//     console.log("POSTING!")
+  // PUT route for updating todos. We can get the updated todo data from req.body
+  app.put("/api/todos", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Todo.update({
+      text: req.body.text,
+      complete: req.body.complete
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
 
-//     console.log(req.body);
-
-//     var surveySays = req.body;
-//     console.log("surveySays: " + JSON.stringify(surveySays, 2));
-
-//     var surveyName = req.body.pet_name;
-//     console.log("surveyName: " + JSON.stringify(surveyName, 2));
-
-//     var justScores = surveySays.scores;
-//     console.log("scores: " + justScores);
-
-//     pets = hbsObject;
-
-//     var differenceArray = [];
-//     var differenceMin = 40;
-//     var bestPet;
-
-//     for (pet in pets) {
-//         var thisPet = pets[pet];
-//         console.log(thisPet);
-
-//         var thisDifference;
-//         var totalDifference = 0;
-
-//         for (score in thisPet.scores) {
-//             thisDifference = Math.abs(thisPet.scores[score] - justScores[score])
-//             totalDifference += thisDifference;
-//             totalDifferene = totalDifference + thisDifference;
-//         }
-
-//         differenceArray.push(totalDifference);
-
-//         for (index in differenceArray) {
-//             console.log("index:", index, "difArIn: ", differenceArray[index])
-
-//             if (differenceArray[index] < differenceMin) {
-//                 differenceMin = differenceArray[index];
-//                 bestPet = {
-//                     "name": thisPet.pet_name,
-//                     "photo": thisPet.photo
-//                 };
-//             }
-//         }
-
-//         console.log("bestPet: " + bestPet.pet_name)
-//     }
-
-//     // Respond to query
-//     var response = (bestPet);
-//     res.json(response);
-
-// });
-// }
+};
