@@ -33,6 +33,15 @@ background: gray;
 .card-title{
     text-shadow: 2px 2px 2px #000;
 }
+.grey-text{
+    text-shadow: 1px 1px 1px #000;
+}
+.white-text{
+    text-shadow: 1px 1px 1px #000;
+}
+.card-image{
+    
+}
 @keyframes drift {
     from{
         top: -200px;
