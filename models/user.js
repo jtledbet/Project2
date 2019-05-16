@@ -1,4 +1,3 @@
-var passport = require('passport');
 var sequelize = require('sequelize');
 
 module.exports = function (sequelize, DataTypes) {
@@ -17,6 +16,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: { len: [8] }
+    },
+    scores: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: { len: [1] }
     },
     isSuperUser: {
       type: DataTypes.BOOLEAN,

@@ -1,19 +1,22 @@
-var db = require('../models');
-var exphbs = require('express-handlebars');
+
 var path =  require('path');
 
 module.exports = function(app) {
-    
+
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname + '/index.html'));
+        res.sendFile(path.join(__dirname, './index.html'));
     });
     
-    app.get('/login', function(req, res) {
-        res.sendFile(path.join(__dirname + '/login'));
+    app.get('/home', function(req, res) {
+        res.sendFile(path.join(__dirname, '../public/home.html'));
     });
 
     app.get('/survey', function(req, res) {
-        res.sendFile(path.join(__dirname + '/survey'));
+        res.sendFile(path.join(__dirname, '../public/survey.html'));
+    });
+
+    app.get('/all', function(req, res) {
+        res.sendFile(path.join(__dirname, '../public/all.html'));
     });
 
 };

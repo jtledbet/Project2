@@ -10,59 +10,131 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
 
-  // GET route for getting all of the todos
-  app.get("/api/todos", function(req, res) {
+  // GET route for getting all of the pets
+  app.get("/api/pets", function (req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Todo.findAll({}).then(function(dbTodo) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(dbTodo);
+    db.Pet.findAll({}).then(function (result) {
+      // We have access to the pets as an argument inside of the callback function
+      res.json(result);
     });
   });
 
-  // POST route for saving a new todo
-  app.post("/api/todos", function(req, res) {
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property
-    db.Todo.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(dbTodo) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbTodo);
+
+  app.post("/api/pets/submit", function (req, res) {
+
+    console.log("COMPARE SURVEY SCORES HERE");
+
+    var surveySays = req.body;
+    console.log("surveySays: " + JSON.stringify(surveySays, 2));
+
+    var surveyName = req.body.name;
+    console.log("surveyName: " + JSON.stringify(surveyName, 2));
+
+    var justScores = surveySays.scores;
+    console.log("scores: " + justScores);
+    
+    // var surveyName = "Jon";
+    // var justScores = "12345";
+
+    db.Species.findAll({
+      attributes: ['id', 'species', 'img', 'score']
+    }).then(function (result) {
+
+
+      var scoreArray = [];
+      var differenceArray = [];
+      var differenceMin = 20;
+      var bestPet;
+
+      // Output JSON result:
+      // res.json(result);
+
+      // Build array of scores from database:
+      for (results in result)
+        scoreArray.push(result[results].dataValues)
+
+        console.log("scoreArray: ", scoreArray);
+      for (index in scoreArray) {
+        var thisPet = scoreArray[index];
+        console.log("index: ", index);
+        console.log("thisPet: ", thisPet);
+
+        var thisDifference;
+        var totalDifference = 0;
+
+        console.log("thisPet.score", thisPet.score);
+
+        var thisPetScore = thisPet.score.toString();
+        console.log("thisPetScore.length", thisPetScore.length);
+
+        for (score in thisPetScore) {
+          console.log ("score: ", score, "thisPet.scores[score]: ", thisPetScore[score]);
+          console.log ("thisPetScores[score]: ", thisPetScore[score]);
+          
+          thisDifference = Math.abs(thisPetScore[score] - justScores[score])
+          totalDifference += thisDifference;
+          totalDifference = totalDifference + thisDifference;
+      }
+
+        differenceArray.push(totalDifference);
+
+        for (index in differenceArray) {
+          console.log("index:", index, "difArIn: ", differenceArray[index])
+
+          if (differenceArray[index] < differenceMin) {
+            console.log("differenceArray[index]: ", differenceArray[index]);
+            console.log("differenceMin: ", differenceMin)
+
+            differenceMin = differenceArray[index];
+            bestPet = {
+              "id": thisPet.id,
+              "img": thisPet.img,
+              "species": thisPet.species,
+            };
+          }
+        }
+
+        console.log("bestPet: ", bestPet);
+      }
+
+      // Respond to query
+      var response = (bestPet);
+      res.json(response);
     });
   });
 
-  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
+  // DELETE route for deleting pets. We can get the id of the pet to be deleted from
   // req.params.id
-  app.delete("/api/todos/:id", function(req, res) {
-    // We just have to specify which todo we want to destroy with "where"
-    db.Todo.destroy({
+  app.delete("/api/pets/:id", function (req, res) {
+    // We just have to specify which pet we want to destroy with "where"
+    db.Pet.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
+    }).then(function (result) {
+      res.json(result);
     });
 
   });
 
-  // PUT route for updating todos. We can get the updated todo data from req.body
-  app.put("/api/todos", function(req, res) {
+  // PUT route for updating pets. We can get the updated pet data from req.body
+  app.put("/api/pets", function (req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Todo.update({
-      text: req.body.text,
-      complete: req.body.complete
+    db.Pet.create({
+      pet_name: req.body.pet_name,
+      species: req.body.species,
+      bio: req.body.bio,
+      scores: req.body.scores
     }, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
-    });
+        where: {
+          id: req.body.id
+        }
+      }).then(function (result) {
+        res.json(result);
+      });
   });
 
 };
