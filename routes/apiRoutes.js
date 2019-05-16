@@ -22,22 +22,24 @@ module.exports = function (app) {
   });
 
 
-  app.get("/api/pets/submit", function (req, res) {
+  app.post("/api/pets/submit", function (req, res) {
 
     console.log("COMPARE SURVEY SCORES HERE");
-    // console.log(req.body);
-    // console.log(req[0]);
-    // var surveySays = req.body;
-    // console.log("surveySays: " + JSON.stringify(surveySays, 2));
-
-    // var surveyName = req.body.name;
-    // console.log("surveyName: " + JSON.stringify(surveyName, 2));
-
-    // var justScores = surveySays.scores;
-    // console.log("scores: " + justScores);
     
-    var surveyName = "Jon";
-    var justScores = "12345";
+    // console.log(res.json(req));
+    // console.log(req[0]);
+    // console.log(req.body[0]);
+    var surveySays = req.body;
+    console.log("surveySays: " + JSON.stringify(surveySays, 2));
+
+    var surveyName = req.body.name;
+    console.log("surveyName: " + JSON.stringify(surveyName, 2));
+
+    var justScores = surveySays.scores;
+    console.log("scores: " + justScores);
+    
+    // var surveyName = "Jon";
+    // var justScores = "12345";
 
     db.Species.findAll({
       attributes: ['id', 'score']
@@ -49,10 +51,10 @@ module.exports = function (app) {
       var differenceMin = 20;
       var bestPet;
 
-      // Output JASON result:
+      // Output JSON result:
       // res.json(result);
 
-      // Build array of scores:
+      // Build array of scores from database:
       for (results in result)
         scoreArray.push(result[results].dataValues)
 
@@ -71,12 +73,12 @@ module.exports = function (app) {
         console.log("thisPetScore.length", thisPetScore.length);
 
         for (score in thisPetScore) {
-          console.log ("score: ", score, "thisPet.scores: ", thisPetScore[score]);
-          console.log ("thisPet.scores[score]: ", thisPetScore[score]);
+          console.log ("score: ", score, "thisPet.scores[score]: ", thisPetScore[score]);
+          console.log ("thisPetScores[score]: ", thisPetScore[score]);
           
           thisDifference = Math.abs(thisPetScore[score] - justScores[score])
           totalDifference += thisDifference;
-          totalDifferene = totalDifference + thisDifference;
+          totalDifference = totalDifference + thisDifference;
       }
 
         differenceArray.push(totalDifference);
@@ -85,15 +87,18 @@ module.exports = function (app) {
           console.log("index:", index, "difArIn: ", differenceArray[index])
 
           if (differenceArray[index] < differenceMin) {
+            console.log("differenceArray[index]: ", differenceArray[index]);
+            console.log("differenceMin: ", differenceMin)
+
             differenceMin = differenceArray[index];
             bestPet = {
-              "name": thisPet.species,
+              "id": thisPet.id,
               "photo": thisPet.photo
             };
           }
         }
 
-        console.log("bestPet: " + bestPet.name)
+        console.log("bestPet's id: " + bestPet.id)
       }
 
       // Respond to query

@@ -24,7 +24,7 @@ $("#submitButton").on("click", function (event) {
 
     // Compare scores:
     console.log(surveyData)
-    $.get("/api/pets/submit", surveyData)
+    $.post("/api/pets/submit", surveyData)
         .then(function(res) {
           console.log("res.body", res.body);
           console.log("res.name", res.species_name);
