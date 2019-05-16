@@ -30,18 +30,19 @@ $("#submitButton").on("click", function (event) {
             console.log("res.id", res.id);
             console.log("res.species", res.species);
 
-            $("#best-friend-alert").text("Your new best friend has been identified as a " + res.species + "!")
+            $("#best-friend-alert").text("Your Spirit Animal has been identified as a " + res.species + "!")
             $("#best-friend-image").attr("src", res.img);
             $("#best-friend-image").attr("width", 450);
-
+            var lcaseSpecies = res.species.toLowerCase();
+            $("#close-button").attr("href", "/all#" + lcaseSpecies);
         });
 })
 
 $("#modal-close").on("click", function (event) {
     event.preventDefault();
 
-    window.scrollTo(0, 0);
-    location.reload();
+    // window.scrollTo(0, 0);
+    // location.reload();
 
     console.log("closing modal!")
 });
