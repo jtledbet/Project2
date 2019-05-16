@@ -51,7 +51,7 @@
                     <div class="col s3">
                     </div>
                     <div class="col s1">
-                        <a class="waves-effect waves-light btn" id="login-btn">Login</a>
+                        <a class="waves-effect waves-light btn tooltipped" id="login-btn" data-position="left" data-tooltip="Currently under construction.">Login</a
                     </div>
                 </div>
             </nav>
@@ -584,10 +584,18 @@
                 integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
             <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+            <script>
+
+                $(document).ready(function () {
+                    $('.tooltipped').tooltip();
+                });
+            
+            </script>
+
         </div>
     </div>
-    <!-- -------------- -->
-    <!--  -->
+
 </body>
 
 </html>

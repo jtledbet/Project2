@@ -1,8 +1,8 @@
 
 INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Dog", "11111", "assets/img/vector/dog.png", NOW(), NOW());
 INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Cat", "22222", "assets/img/vector/cat.png", NOW(), NOW());
+INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Reptile", "44444", "assets/img/vector/raptor.png", NOW(), NOW());
 INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Horse", "33333", "assets/img/vector/horse.png", NOW(), NOW());
-INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Reptile", "44444", "assets/img/vector/reptile.png", NOW(), NOW());
 INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Bird", "55555", "assets/img/vector/bird.png", NOW(), NOW());
 INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Fish", "12345", "assets/img/vector/fish.png", NOW(), NOW());
 INSERT INTO species (species, score, img, createdAt, updatedAt) VALUES ("Dinosaur", "12345", "assets/img/vector/raptor.png", NOW(), NOW());
