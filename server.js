@@ -1,5 +1,4 @@
 var express = require("express");
-var db = require("./models");
 
 // var exphbs = require('express-handlebars');
 // var passport = require('passport');
@@ -26,17 +25,14 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
-// Routes
-// =============================================================
-require("./routes/apiRoutes.js")(app);
-require("./routes/htmlRoutes.js")(app);
-
-
-
 // Requiring our models for syncing
 var db = require("./models");
 
 
+// Routes
+// =============================================================
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
