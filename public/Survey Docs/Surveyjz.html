@@ -1,24 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pet Match</title>
-    <script src="Surveyjz.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<html>
+    <head>
+        <title>survey</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/jquery"></script>
+        <script src="https://surveyjs.azureedge.net/1.0.85/survey.jquery.js"></script>
+        <link href="https://surveyjs.azureedge.net/1.0.85/survey.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="surveypg.css">
 
-</head>
-<body>
-  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+
+    <body>
+
+            <div class="parallax-container">
+                    <div class="parallax"><img  id = "pic1" src=""></div>
+                    <nav class="transparent z-depth-0">
+                        <div class="row">
+                            <div class="col">
+                                <ul id="nav-mobile" class="left">
+                                    <li><a id=animals-btn href="/all">All Animals</a></li>
+                                </ul>
+                            </div>
+                                <h1>Pet Match</h1>
+                            </div>
+                            <div class="col">
+                            </div>
+                            <div class="col">
+                                <a class="waves-effect waves-light btn tooltipped" id="login-btn" data-position="left" data-tooltip="Currently under construction.">Login</a>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </nav>
+                    <h3 id = "greeting"class = "center-align white-text">Login and complete the Questionnaire!</h3>
+                </div>
     
-    <div id="surveyContainer"></div>
+    <div class = "container">
+        <div id="surveyElement"></div>
+        <div id="surveyResult"></div>
+     </div>
     
     
-    
-    
-    <script src="https://surveyjs.azureedge.net/1.0.85/survey.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</body>
+        <script type="text/javascript" src="./Surveyjz.js"></script>
+    </body>
 </html>
-
