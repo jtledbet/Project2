@@ -8,6 +8,7 @@ CREATE TABLE species
 (
 	id int NOT NULL AUTO_INCREMENT,
 	species varchar(255) NOT NULL,
+	img varchar(255) DEFAULT 'assets/img/default.jpg',
 	score varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );
