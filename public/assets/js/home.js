@@ -6,3 +6,6 @@ $(document).ready(function () {
         direction: "left"
     });
 });
+$(document).ready(function () {
+    $('.tooltipped').tooltip();
+});
