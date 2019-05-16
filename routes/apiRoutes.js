@@ -25,10 +25,7 @@ module.exports = function (app) {
   app.post("/api/pets/submit", function (req, res) {
 
     console.log("COMPARE SURVEY SCORES HERE");
-    
-    // console.log(res.json(req));
-    // console.log(req[0]);
-    // console.log(req.body[0]);
+
     var surveySays = req.body;
     console.log("surveySays: " + JSON.stringify(surveySays, 2));
 
@@ -42,7 +39,7 @@ module.exports = function (app) {
     // var justScores = "12345";
 
     db.Species.findAll({
-      attributes: ['id', 'score']
+      attributes: ['id', 'species', 'img', 'score']
     }).then(function (result) {
 
 
@@ -93,12 +90,13 @@ module.exports = function (app) {
             differenceMin = differenceArray[index];
             bestPet = {
               "id": thisPet.id,
-              "photo": thisPet.photo
+              "img": thisPet.img,
+              "species": thisPet.species,
             };
           }
         }
 
-        console.log("bestPet's id: " + bestPet.id)
+        console.log("bestPet: ", bestPet);
       }
 
       // Respond to query
