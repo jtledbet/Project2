@@ -7,32 +7,16 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, './index.html'));
     });
     
-    // app.get('/login', function(req, res) {
-    //     res.sendFile(path.join(__dirname, '../public/login'));
-    // });
+    app.get('/home', function(req, res) {
+        res.sendFile(path.join(__dirname, '../public/home.html'));
+    });
 
     app.get('/survey', function(req, res) {
         res.sendFile(path.join(__dirname, '../public/survey.html'));
     });
 
     app.get('/all', function(req, res) {
-        res.sendFile(path.join(__dirname, '../public/viewAll.html'));
+        res.sendFile(path.join(__dirname, '../public/all.html'));
     });
 
 };
-
-// const express = require("express")
-// const router = express.Router()
-
-
-// router.get("/", function(req,res){
-//     console.log("root route running")
-//     res.sendFile("/index")
-// })
-
-// router.get("/all", function(req,res){
-//     console.log("root route running")
-//     res.sendFile("/viewAll")
-// })
-
-// module.exports = router
