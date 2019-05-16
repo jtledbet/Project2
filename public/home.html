@@ -37,7 +37,7 @@
                 <div class="col s3">
                 </div>
                 <div class="col s1">
-                    <a class="waves-effect waves-light btn" id="login-btn">Login</a>
+                    <a class="waves-effect waves-light btn tooltipped" id="login-btn" data-position="left" data-tooltip="I am a tooltip">Login</a>
                 </div>
             </div>
             <!-- </div> -->
@@ -127,6 +127,15 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./assets/js/materialize.js"></script>
     <script type="text/javascript" src="./assets/js/home.js"></script>
+
+    <script>
+
+    $(document).ready(function () {
+        $('.tooltipped').tooltip();
+    });
+
+    </script>
+
 </body>
 
 </html>
