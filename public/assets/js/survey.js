@@ -34,7 +34,7 @@ $("#submitButton").on("click", function (event) {
             $("#best-friend-image").attr("src", res.img);
             $("#best-friend-image").attr("width", 450);
             var lcaseSpecies = res.species.toLowerCase();
-            $("#close-button").attr("href", "/all/#" + lcaseSpecies);
+            $("#close-button").attr("href", "/all#" + lcaseSpecies);
         });
 })
 
