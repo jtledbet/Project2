@@ -39,6 +39,28 @@ background: gray;
 .white-text{
     text-shadow: 1px 1px 1px #000;
 }
+@media screen and (max-width: 980px){
+    #greeting{
+        font-size: 30px;
+    }
+    #title{
+        font-size: 50px;
+}
+}
+@media screen and (max-width: 768px){
+    #greeting{
+        font-size: 25px;
+    }
+    #title{
+        font-size: 40px;
+}
+}
+@media screen and (max-width: 480px){
+    #greeting{
+        font-size: 20px;
+    }
+    
+}
 /* .turtle{
     height: 100%;
 }
