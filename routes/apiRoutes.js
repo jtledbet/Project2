@@ -42,7 +42,6 @@ module.exports = function (app) {
       attributes: ['id', 'species', 'img', 'score']
     }).then(function (result) {
 
-
       var scoreArray = [];
       var differenceArray = [];
       var differenceMin = 40;
@@ -61,12 +60,12 @@ module.exports = function (app) {
         console.log("index: ", index);
         console.log("thisPet: ", thisPet);
 
-        var thisDifference;
+        var thisDifference = 0;
         var totalDifference = 0;
 
         console.log("thisPet.score", thisPet.score);
 
-        var thisPetScore = thisPet.score.toString();
+        var thisPetScore = thisPet.score;
         console.log("thisPetScore.length", thisPetScore.length);
 
         for (score in thisPetScore) {
@@ -74,11 +73,13 @@ module.exports = function (app) {
           console.log ("thisPetScores[score]: ", thisPetScore[score]);
           
           thisDifference = Math.abs(thisPetScore[score] - justScores[score]);
+          console.log("thisDifference: ", thisDifference);
           totalDifference += thisDifference;
           totalDifference = totalDifference + thisDifference;
       }
 
-        differenceArray.push(totalDifference);
+        differenceArray.push("totalDifference:", totalDifference);
+        console.log(differenceArray);
 
         for (index in differenceArray) {
           console.log("index:", index, "difArIn: ", differenceArray[index]);
