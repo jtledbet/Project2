@@ -94,12 +94,6 @@ var json = {
            },
            {
             "value": "giraffe",
-<<<<<<< HEAD
-            "imageLink": "http://dreamicus.com/data/red/red-02.jpg"
-           },
-           {
-            "value": "panda",
-=======
             "imageLink": ""
            },
            {
@@ -110,7 +104,6 @@ var json = {
            },
            {
             "value": "panda",
->>>>>>> bfe4d7b24c872c85ff564ae658f303ca09b00121
             "imageLink": "http://www.photoemporium.ca/index_htm_files/44.png"
            },
            {
