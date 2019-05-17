@@ -3,7 +3,7 @@ $("#submitButton").on("click", function (event) {
     event.preventDefault();
 
     var surveyData = {
-        name: $("#name").val().trim(),
+        // name: $("#name").val().trim(),
 
         scores:
             [
