@@ -9,3 +9,6 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.tooltipped').tooltip();
 });
+AOS.init({
+    duration: 2000
+   });
