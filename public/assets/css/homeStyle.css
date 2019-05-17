@@ -44,7 +44,7 @@ background: gray;
         font-size: 30px;
     }
     #title{
-        font-size: 50px;
+        font-size: 35px;
 }
 }
 @media screen and (max-width: 768px){
@@ -57,7 +57,7 @@ background: gray;
 }
 @media screen and (max-width: 480px){
     #greeting{
-        font-size: 20px;
+        font-size: 15px;
     }
     
 }
@@ -77,4 +77,3 @@ background: gray;
         opacity: 1;
     }
 }
-
