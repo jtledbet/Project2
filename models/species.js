@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: "assets/img/default.jpg",
         },
         score: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: { len: [1] }
         }
