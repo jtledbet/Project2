@@ -24,12 +24,13 @@ $("#submitButton").on("click", function (event) {
     survey.getValue('question1');
     //Use data property to get/set survey data as json
     survey.data = { "youquestion1": value1, "youquestionN": valueN };
-    //Use onValueChanged event to get a notification on chaning question value.
+    //Use onValueChanged event to get a notification on changing question value.
     survey.onValueChanged.add(function (sender, options) {
         var mySurvey = sender;
         var questionName = options.name;
         var newValue = options.value;
     });
+
     //Use onComplete to get survey.data to pass it to the server.
     survey.onComplete.add(function (sender) {
         var mySurvey = sender;
