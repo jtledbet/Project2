@@ -1,0 +1,26 @@
+{
+  "name": "Project2",
+  "version": "1.0.0",
+  "description": "The sky's the limit with this application.",
+  "main": "server.js",
+  "dependencies": {
+    "materialize-css": "^1.0.0-rc.2",
+    "survey-jquery": "^1.0.85"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtledbet/Project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jtledbet/Project2/issues"
+  },
+  "homepage": "https://github.com/jtledbet/Project2#readme"
+}

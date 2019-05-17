@@ -45,7 +45,7 @@ module.exports = function (app) {
 
       var scoreArray = [];
       var differenceArray = [];
-      var differenceMin = 20;
+      var differenceMin = 40;
       var bestPet;
 
       // Output JSON result:
@@ -53,7 +53,7 @@ module.exports = function (app) {
 
       // Build array of scores from database:
       for (results in result)
-        scoreArray.push(result[results].dataValues)
+        scoreArray.push(result[results].dataValues);
 
         console.log("scoreArray: ", scoreArray);
       for (index in scoreArray) {
@@ -73,7 +73,7 @@ module.exports = function (app) {
           console.log ("score: ", score, "thisPet.scores[score]: ", thisPetScore[score]);
           console.log ("thisPetScores[score]: ", thisPetScore[score]);
           
-          thisDifference = Math.abs(thisPetScore[score] - justScores[score])
+          thisDifference = Math.abs(thisPetScore[score] - justScores[score]);
           totalDifference += thisDifference;
           totalDifference = totalDifference + thisDifference;
       }
@@ -81,11 +81,11 @@ module.exports = function (app) {
         differenceArray.push(totalDifference);
 
         for (index in differenceArray) {
-          console.log("index:", index, "difArIn: ", differenceArray[index])
+          console.log("index:", index, "difArIn: ", differenceArray[index]);
 
           if (differenceArray[index] < differenceMin) {
             console.log("differenceArray[index]: ", differenceArray[index]);
-            console.log("differenceMin: ", differenceMin)
+            console.log("differenceMin: ", differenceMin);
 
             differenceMin = differenceArray[index];
             bestPet = {
