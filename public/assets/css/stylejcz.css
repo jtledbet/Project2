@@ -102,7 +102,10 @@
     .row{
         background-color: transparent !important;
     }
-    
+    .carousel{
+       position:relative;
+       bottom: 70px; 
+    }
     @media screen and (max-width: 980px){
         #greeting{
             font-size: 30px;
@@ -125,7 +128,6 @@
         }
         
     }
-
     @keyframes drift {
         from{
             top: -200px;
@@ -136,5 +138,5 @@
             opacity: 1;
         }
     }
-    /* clean up css */--------------------
+    
     
