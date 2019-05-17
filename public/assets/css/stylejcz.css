@@ -39,12 +39,12 @@
     }
     
     .card{
-    width: 300px;
+    width: 220px;
     height: 400px;
     align-self: center;
         
     }
-    .section.white{
+    .row{
         width: 100% !important;
     }
     
@@ -58,6 +58,9 @@
         height: 300px;
         width: 100% !important;
     
+    }
+    .container{
+        width: 100% !important;
     }
      h2{
         text-align: center;
