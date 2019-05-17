@@ -12,11 +12,11 @@ $("#submitButton").on("click", function (event) {
                 $("#num3").val(),
                 $("#num4").val(),
                 $("#num5").val(),
-                // $("#num6").val(),
-                // $("#num7").val(),
-                // $("#num8").val(),
-                // $("#num9").val(),
-                // $("#num10").val()
+                $("#num6").val(),
+                $("#num7").val(),
+                $("#num8").val(),
+                $("#num9").val(),
+                $("#num10").val()
             ]
     };
 
