@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>survey</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://unpkg.com/jquery"></script>
-        <script src="https://surveyjs.azureedge.net/1.0.85/survey.jquery.js"></script>
-        <link href="https://surveyjs.azureedge.net/1.0.85/survey.css" type="text/css" rel="stylesheet"/>
-        <link rel="stylesheet" href="surveypg.css">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+<head>
+    <title>survey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://surveyjs.azureedge.net/1.0.85/survey.jquery.js"></script>
+    <link href="https://surveyjs.azureedge.net/1.0.85/survey.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="surveypg.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 
 
-    <body>
+<body>
 
-            <div class="parallax-container">
-                    <div class="parallax"><img  id = "pic1" src=""></div>
-                    <nav class="transparent z-depth-0">
-                        <div class="row">
-                            <div class="col">
-                                <ul id="nav-mobile" class="left">
-                                    <li><a id=animals-btn href="/all">All Animals</a></li>
-                                </ul>
-                            </div>
-                                <h1>Pet Match</h1>
-                            </div>
-                            <div class="col">
-                            </div>
-                            <div class="col">
-                                <a class="waves-effect waves-light btn tooltipped" id="login-btn" data-position="left" data-tooltip="Currently under construction.">Login</a>
-                            </div>
-                        </div>
-                        <!-- </div> -->
-                    </nav>
-                    <h3 id = "greeting"class = "center-align white-text">Login and complete the Questionnaire!</h3>
+    <div class="parallax-container">
+        <div class="parallax"><img id="pic1" src=""></div>
+        <nav class="transparent z-depth-0">
+            <div class="row">
+                <div class="col s2">
+                    <ul id="nav-mobile" class="left">
+                    </ul>
                 </div>
+            </div>
+            <div class="col">
+            </div>
+            <p>Pet Match</p>
+        </nav>
+        <h3 id="greeting" class="center-align white-text"><a>Complete the Questionnaire to find your match!</a></h3>
+    </div>
+
     
-    <div class = "container">
+    <br>
+    
+    <div class="container">
         <div id="surveyElement"></div>
         <div id="surveyResult"></div>
-     </div>
+    </div>
     
-    
-        <script type="text/javascript" src="./Surveyjz.js"></script>
-    </body>
+    <div class="gif">
+        <img src="https://media0.giphy.com/media/7792CoU4eXuoM/giphy.gif">
+    </div>
+
+    <script type="text/javascript" src="./Surveyjz.js"></script>
+</body>
+
 </html>
