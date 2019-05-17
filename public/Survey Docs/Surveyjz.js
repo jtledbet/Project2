@@ -99,6 +99,12 @@ var json = {
            {
             "value": "panda",
             "imageLink": ""
+
+            "imageLink": "http://dreamicus.com/data/red/red-02.jpg"
+           },
+           {
+            "value": "panda",
+            "imageLink": "http://www.photoemporium.ca/index_htm_files/44.png"
            },
            {
             "value": "camel",

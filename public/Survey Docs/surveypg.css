@@ -67,7 +67,9 @@ h3{
 .col.s4{
     text-align: center;
     }
-
+#question8{
+    align-content: center;
+}
     
 
 @keyframes drift {
