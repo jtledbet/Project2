@@ -42,10 +42,9 @@ module.exports = function (app) {
       attributes: ['id', 'species', 'img', 'score']
     }).then(function (result) {
 
-
       var scoreArray = [];
       var differenceArray = [];
-      var differenceMin = 20;
+      var differenceMin = 40;
       var bestPet;
 
       // Output JSON result:
@@ -53,7 +52,7 @@ module.exports = function (app) {
 
       // Build array of scores from database:
       for (results in result)
-        scoreArray.push(result[results].dataValues)
+        scoreArray.push(result[results].dataValues);
 
         console.log("scoreArray: ", scoreArray);
       for (index in scoreArray) {
@@ -61,31 +60,33 @@ module.exports = function (app) {
         console.log("index: ", index);
         console.log("thisPet: ", thisPet);
 
-        var thisDifference;
+        var thisDifference = 0;
         var totalDifference = 0;
 
         console.log("thisPet.score", thisPet.score);
 
-        var thisPetScore = thisPet.score.toString();
+        var thisPetScore = thisPet.score;
         console.log("thisPetScore.length", thisPetScore.length);
 
         for (score in thisPetScore) {
           console.log ("score: ", score, "thisPet.scores[score]: ", thisPetScore[score]);
           console.log ("thisPetScores[score]: ", thisPetScore[score]);
           
-          thisDifference = Math.abs(thisPetScore[score] - justScores[score])
+          thisDifference = Math.abs(thisPetScore[score] - justScores[score]);
+          console.log("thisDifference: ", thisDifference);
           totalDifference += thisDifference;
           totalDifference = totalDifference + thisDifference;
       }
 
-        differenceArray.push(totalDifference);
+        differenceArray.push("totalDifference:", totalDifference);
+        console.log(differenceArray);
 
         for (index in differenceArray) {
-          console.log("index:", index, "difArIn: ", differenceArray[index])
+          console.log("index:", index, "difArIn: ", differenceArray[index]);
 
           if (differenceArray[index] < differenceMin) {
             console.log("differenceArray[index]: ", differenceArray[index]);
-            console.log("differenceMin: ", differenceMin)
+            console.log("differenceMin: ", differenceMin);
 
             differenceMin = differenceArray[index];
             bestPet = {
