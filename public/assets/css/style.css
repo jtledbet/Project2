@@ -26,7 +26,7 @@ p{
   color: white;
   text-align: center;
   font-family: 'Lora', serif;
-  font-size: 30px
+  font-size: 25px
 }
 
 .main{
@@ -69,6 +69,8 @@ margin-left: 50px,
 .card-footer {
   height: 50px;
   text-align: center;
+  border-top: 0px !important;
+  background-color: rgb(0, 0, 0, 0) !important;
 }
 
 .btn, #num1, #num2, #num3, #num4, #num5, #num6, #num8, #num9, #num10{
@@ -92,7 +94,11 @@ margin-left: 50px,
 }
 
 .img{
-  align-content: center;
+  margin-left: 200px;
+}
+
+.center{
+  display: block !important;
 }
 
 @keyframes drift {
@@ -105,3 +111,24 @@ margin-left: 50px,
       opacity: 1;
   }
 }
+
+@media screen and (max-width: 980px){
+ p{
+   font-size: 18px;
+ }
+}
+
+@media screen and (max-width: 768px){
+p{
+  font-size: 15px;
+}
+
+}
+
+@media screen and (max-width: 480px){
+
+p{
+  font-size: 10px;
+}
+  }
+  

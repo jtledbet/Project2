@@ -36,7 +36,7 @@ module.exports = function (app) {
     console.log("scores: " + justScores);
     
     // var surveyName = "Jon";
-    // var justScores = "12345";
+    // var justScores = "1234567890";
 
     db.Species.findAll({
       attributes: ['id', 'species', 'img', 'score']
@@ -64,29 +64,36 @@ module.exports = function (app) {
         var totalDifference = 0;
 
         console.log("thisPet.score", thisPet.score);
+        console.log("myscore: ", justScores);
 
-        var thisPetScore = thisPet.score;
+        var thisPetScore = thisPet.score.toString();
         console.log("thisPetScore.length", thisPetScore.length);
 
         for (score in thisPetScore) {
-          console.log ("score: ", score, "thisPet.scores[score]: ", thisPetScore[score]);
-          console.log ("thisPetScores[score]: ", thisPetScore[score]);
-          
-          thisDifference = Math.abs(thisPetScore[score] - justScores[score]);
-          console.log("thisDifference: ", thisDifference);
+          console.log ("myscore: ", justScores[score], "\tthisPet.scores[score]: ", thisPetScore[score]);
+          console.log ("myscore: ", typeof(score), "\tthisPet.scores[score]: ", typeof(thisPetScore[score]));
+        
+          // console.log("camera one: ", thisPetScore);
+          // console.log("camera two: ", justScores);
+
+          // thisDifference = Math.abs(thisPetScore[score] - justScores[score]);
+          thisDifference = Math.abs(parseInt(thisPetScore[score]) - parseInt(justScores[score]));
+          console.log("thisDifference: ", thisDifference, typeof(thisDifference));
+          console.log("totalDifference (before): ", totalDifference, typeof(totalDifference));
           totalDifference += thisDifference;
-          totalDifference = totalDifference + thisDifference;
+          console.log("totalDifference (after): ", totalDifference, typeof(totalDifference));
+          // totalDifference = totalDifference + thisDifference;
       }
 
         differenceArray.push("totalDifference:", totalDifference);
         console.log(differenceArray);
 
         for (index in differenceArray) {
-          console.log("index:", index, "difArIn: ", differenceArray[index]);
+          // console.log("index:", index, "difArIn: ", differenceArray[index]);
 
           if (differenceArray[index] < differenceMin) {
-            console.log("differenceArray[index]: ", differenceArray[index]);
-            console.log("differenceMin: ", differenceMin);
+            // console.log("differenceArray[index]: ", differenceArray[index]);
+            // console.log("differenceMin: ", differenceMin);
 
             differenceMin = differenceArray[index];
             bestPet = {
