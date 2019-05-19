@@ -11,7 +11,10 @@
     .card-reveal{
         opacity: .7;
     }
-    
+    .material-icons{
+        font-family: 'Lora', serif !important; 
+
+    }
     h1{
         text-shadow: 2px 2px 2px #000;
         animation-duration: 1.5s;
