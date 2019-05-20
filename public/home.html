@@ -11,69 +11,76 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="./assets/css/homeStyle.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="./assets/css/materialize.css" />
-   
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pet Match</title>
+    <title>Spirit Animals</title>
 </head>
 
 <body>
     <div class="parallax-container">
-        <div class="parallax"><img  id = "pic1" src="./assets/img/super_cute.jpg"></div>
-        <nav class="transparent z-depth-0">
+        <div class="parallax"><img id="pic1" src="./assets/img/super_cute.jpg"></div>
+        <nav class="transparent z-depth-0" drift-aos="drift">
 
-            <!-- <div class="container"> -->
-            <div class="row">
-                <div class="col s4">
-                    <ul id="nav-mobile" class="left">
-                        <li><a href="/survey">Questionnaire</a></li>
-                        <li><a id=animals-btn href="/all">All Animals</a></li>
-                    </ul>
-                </div>
-                <div class="col s4">
-                    <a href="#" class="title"><h1 id = "title">Pet Match</h1></a>
-                </div>
-                <div class="col s3">
-                </div>
-                <div class="col s1">
-                    <a class="waves-effect waves-light btn tooltipped" id="login-btn" data-position="left" data-tooltip="I am a tooltip">Login</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col s4">
+                        <ul id="nav-mobile" class="left">
+                            <li><a href="/survey">Questionnaire</a></li>
+                            <li><a id=animals-btn href="/all">All Animals</a></li>
+                        </ul>
+                    </div>
+                    <div class="col s4">
+                        <a href="#" class="title">
+                            
+                            <h1 id="title">Spirit Animals</h1>
+                        </a>
+                    </div>
+                    <div class="col s3">
+                    </div>
+                    <div class="col s1">
+                    </div>
                 </div>
             </div>
-            <!-- </div> -->
         </nav>
-        <h3 id = "greeting"class = "center-align white-text">Login and complete the Questionnaire!</h3>
+        <br><br><br>
+        <h3 id="greeting" class="center-align text-center white-text" drift-aos="drift">Complete the Questionnaire!</h3>
     </div>
 
     <div class="section grey lighten-1 z-depth-5">
         <div class="row container">
             <h2 class="header center-align white-text">Questionnaire</h2>
             <p class="white-text text-darken-3 lighten-1 center-align">Click the link below to the Questionnaire!
-            <div class="row">
-                <div class="col s12">
-                    <div class="card">
-                        <div class="turtle card-image center-align">
-                            <img src= "./assets/img/turtle2.jpg">
-                            <span class="card-title center-align">Questionnaire</span>
-                        </div>
-                        <div class="card-content textPart center-align">
-                        <p>Complete the Questionnaire to find your ideal pet based on your personality and lifestyle!</p>
-                        </div>
-                        <div class="card-action center-align">
-                            <a href="#">Questionnaire</a>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="turtle card-image center-align">
+                                <img src="./assets/img/turtle2.jpg">
+                                <span class="card-title center-align">Questionnaire</span>
+                            </div>
+                            <div class="card-content textPart center-align">
+                                <p>Complete the Questionnaire to find your ideal pet based on your personality and
+                                    lifestyle!</p>
+                            </div>
+                            <div class="card-action center-align">
+                                <a href="/survey">Questionnaire</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
     <div class="parallax-container">
-    <div class="parallax"><img src="./assets/img/bunny.jpg"></div>
+        <div class="parallax"><img src="./assets/img/bunny.jpg"></div>
     </div>
     <div class="section grey lighten-1 z-depth-5">
         <div class="row container">
             <h2 class="header center-align white-text">View All Animals</h2>
-            <p class="white-text text-darken-3 lighten-3 center-align">Click the link below to view our gallery of animals!
+            <p class="white-text text-darken-3 lighten-3 center-align">Click the link below to view our gallery of
+                animals!
             </p>
 
             <div class="row">
@@ -84,7 +91,8 @@
                             <span class="card-title center-align">View All Animals</span>
                         </div>
                         <div class="card-content center-align">
-                            <p>We have a large collection of animals available to view. Make sure to complete the Questionnaire linked above to find your ideal pet!</p>
+                            <p>We have a large collection of animals available to view. Make sure to complete the
+                                Questionnaire linked above to find your ideal pet!</p>
                         </div>
                         <div class="card-action center-align">
                             <a href="#">View All Animals</a>
@@ -99,42 +107,35 @@
     </div>
 
     <footer class="page-footer grey">
-            <div class="container">
-              <div class="row">
+        <div class="container">
+            <div class="row">
                 <div class="col l6 s12">
-                  <h5 class="white-text">Pet Match</h5>
-                  <p class="grey-text text-lighten-4">This application was created by a team of Full-Stack Web Developers. You can view each members Github Repositories by clicking their name.</p>
+                    <h5 class="white-text">Spirit Animals</h5>
+                    <p class="grey-text text-lighten-4">This application was created by a team of Full-Stack Web
+                        Developers. You can view each members Github Repositories by clicking their name.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Developer's Github Links</h5>
-                  <ul>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/JackieCZhou">Jackie Zhou</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/jthorn70">Jeremiah Thorn</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/Mitchel34">Mitchel Carson</a></li>
-                    <li><a class="grey-text text-lighten-3" href="https://github.com/jtledbet">Jon </a></li>
-                  </ul>
+                    <h5 class="white-text">Developer's Github Links <i class="fab fa-github-square"></i></h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/JackieCZhou">Jackie Zhou</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/jthorn70">Jeremiah Thorn</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/Mitchel34">Mitchel Carson</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/jtledbet">Jon Ledbetter</a></li>
+                    </ul>
                 </div>
-              </div>
             </div>
-            <div class="footer-copyright">
-              <div class="container">
-              © 2019 Copyright Text
-              </div>
-            </div>
-          </footer>
+        </div>
+        <div class="footer-copyright">
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./assets/js/materialize.js"></script>
     <script type="text/javascript" src="./assets/js/home.js"></script>
-
-    <script>
-
-    $(document).ready(function () {
-        $('.tooltipped').tooltip();
-    });
-
-    </script>
 
 </body>
 

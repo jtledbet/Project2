@@ -8,7 +8,7 @@ module.exports = function(app) {
     });
     
     app.get('/home', function(req, res) {
-        res.sendFile(path.join(__dirname, '../public/home.html'));
+        res.render('home');
     });
 
     app.get('/survey', function(req, res) {
@@ -16,7 +16,11 @@ module.exports = function(app) {
     });
 
     app.get('/all', function(req, res) {
-        res.sendFile(path.join(__dirname, '../public/all.html'));
+        res.render('all')
     });
 
+    app.get('/test', function(req, res) {
+        res.render('test');
+    });
+    
 };
