@@ -1,4 +1,4 @@
-# Project2
+# Spirit Animals
 
 The sky's the limit with this application.
 
