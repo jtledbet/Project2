@@ -93,6 +93,7 @@
         animation-duration: 1.5s;
         animation-name: drift;
         position: relative;
+        margin-top: 100px;
     }
     
     #greeting-extra{
