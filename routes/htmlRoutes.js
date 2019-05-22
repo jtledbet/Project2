@@ -4,7 +4,9 @@ var path =  require('path');
 module.exports = function(app) {
 
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, './index.html'));
+        res.render('home');
+        // old index for path debugging:
+        // res.sendFile(path.join(__dirname, './index.html'));
     });
     
     app.get('/home', function(req, res) {
@@ -19,8 +21,8 @@ module.exports = function(app) {
         res.render('all')
     });
 
-    app.get('/test', function(req, res) {
-        res.render('test');
+    app.get('*', function(req, res) {
+        res.render('home');
     });
     
 };
